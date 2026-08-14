@@ -5,6 +5,7 @@ import SocialPill from "../components/SocialPill.astro";
 import LinkedInIcon from "../components/icons/LinkedIn.astro";
 import GitHubIcon from "../components/icons/GitHub.astro";
 import EmailIcon from "../components/icons/Mail.astro";
+import profileImage from "../assets/img/Imprimir.png";
 ---
 
 <Layout title="Portafolio Jairo Guevara - Desarrollador .NET & Angular">
@@ -12,8 +13,8 @@ import EmailIcon from "../components/icons/Mail.astro";
     <section class="w-full lg:w-[740px] mx-auto py-44">
       <img
         class="rounded-full size-12 w-12 h-12 mb-4"
-        src="/src/assets/img/Imprimir.png"
-        alt="jg photo"
+        src={profileImage.src}
+        alt="Jairo Guevara"
       />
       <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
         ¡Saludos! Soy Jairo Guevara
