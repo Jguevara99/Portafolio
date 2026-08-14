@@ -1,26 +1,56 @@
 ---
-
-import Layout from '../layouts/Layout.astro';
-import Badge from '../components/Badge.astro'
-
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import SocialPill from "../components/SocialPill.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import EmailIcon from "../components/icons/Mail.astro";
 ---
 
-<Layout title='Portafolio JG'>
-	<main>
-		<section class="w-full lg:w-[740px] mx-auto py-44">
-			<h1 class="text-white text-5xl font-bold flex  flex-row gap-x-4 pb-4">
-				¡Hola! Soy Jairo Guevara
-				<a href="https://www.linkedin.com/in/jairo-antonio-guevara-ampie-b68738214/"
-				target="_blank" rel="noopener" 
-				class="flex justify-center items-center">
-					<Badge>Disponible para trabajar</Badge>
-				</a>
-			</h1>  
-			<h2 class="text-white text-2xl font-semibold">
-				<span class="block">Frontend Developer Junior</span>
-				<span class="text-red-100 block mt-2">Masaya, Nicaragua</span>
-				<span class="text-lg mt-2">Conocimiento en HTML, CSS, JavaScript, React, C#, .NET Core, DevExpress</span>
-			</h2>
-		</section>
-	</main>
+<Layout title="Portafolio Jairo Guevara - Desarrollador .NET & Angular">
+  <main>
+    <section class="w-full lg:w-[740px] mx-auto py-44">
+      <img
+        class="rounded-full size-12 w-12 h-12 mb-4"
+        src="/src/assets/img/Imprimir.png"
+        alt="jg photo"
+      />
+      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
+        ¡Saludos! Soy Jairo Guevara
+        <a
+          href="https://www.linkedin.com/in/jairo-guevara"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </h1>
+      <h2 class="text-white text-2xl font-semibold">
+        <span class="block">Desarrollador .NET & Angular</span>
+        <span class="text-lg mt-2">
+          <span>+3 años de experiencia.</span>
+          <span>creando aplicaciones web y sistemas empresariales.</span>
+          <!--Especializado en transformar requerimientos en soluciones funcionales y mantenibles. -->
+        </span>
+
+        <span class="text-blue-100 block mt-2">Masaya, Nicaragua.</span>
+      </h2>
+
+      <nav class="flex gap-x-4 mt-8">
+        <SocialPill href="https://www.linkedin.com/in/jairo-guevara">
+          <LinkedInIcon class="size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/Jguevara99">
+          <GitHubIcon class="size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:guevarajairo294@gmail.com">
+          <EmailIcon class="size-6" />
+          guevarajairo294@gmail.com
+        </SocialPill>
+      </nav>
+    </section>
+  </main>
 </Layout>
