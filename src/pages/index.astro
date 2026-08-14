@@ -1,57 +1,47 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Badge from "../components/Badge.astro";
-import SocialPill from "../components/SocialPill.astro";
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import GitHubIcon from "../components/icons/GitHub.astro";
-import EmailIcon from "../components/icons/Mail.astro";
-import profileImage from "../assets/img/Imprimir.png";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Hero from "../components/Hero.astro";
+import TitleSection from "../components/TitleSection.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
+import ProfileCheck from "../components/icons/ProfileCheck.astro";
+import Projects from "../components/Projects.astro";
+import AboutMe from "../components/AboutMe.astro";
 ---
 
 <Layout title="Portafolio Jairo Guevara - Desarrollador .NET & Angular">
-  <main>
-    <section class="w-full lg:w-[740px] mx-auto py-44">
-      <img
-        class="rounded-full size-12 w-12 h-12 mb-4"
-        src={profileImage.src}
-        alt="Jairo Guevara"
-      />
-      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
-        ¡Saludos! Soy Jairo Guevara
-        <a
-          href="https://www.linkedin.com/in/jairo-guevara"
-          target="_blank"
-          rel="noopener"
-          class="flex justify-center items-center"
-        >
-          <Badge>Disponible para trabajar</Badge>
-        </a>
-      </h1>
-      <h2 class="text-white text-2xl font-semibold">
-        <span class="block">Desarrollador .NET & Angular</span>
-        <span class="text-lg mt-2">
-          <span>+3 años de experiencia.</span>
-          <span>creando aplicaciones web y sistemas empresariales.</span>
-          <!--Especializado en transformar requerimientos en soluciones funcionales y mantenibles. -->
-        </span>
+   <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero>
+      </slot>
+    </Hero>
+    </SectionContainer>
+    <div class="space-y-24">
+    <SectionContainer id="experiencia">
+      <TitleSection>
+        <Briefcase class="size-8" />
+        Experiencia laboral
+      </TitleSection>
+      <Experience />
+    </SectionContainer>
 
-        <span class="text-blue-100 block mt-2">Masaya, Nicaragua.</span>
-      </h2>
+    <!-- <SectionContainer id="proyectos">
+      <TitleSection>
+        <CodeIcon class="size-7" />
+        Proyectos
+      </TitleSection>
+      <Projects />
+    </SectionContainer> -->
 
-      <nav class="flex gap-x-4 mt-8">
-        <SocialPill href="https://www.linkedin.com/in/jairo-guevara">
-          <LinkedInIcon class="size-6" />
-          LinkedIn
-        </SocialPill>
-        <SocialPill href="https://github.com/Jguevara99">
-          <GitHubIcon class="size-6" />
-          GitHub
-        </SocialPill>
-        <SocialPill href="mailto:guevarajairo294@gmail.com">
-          <EmailIcon class="size-6" />
-          guevarajairo294@gmail.com
-        </SocialPill>
-      </nav>
-    </section>
+    <SectionContainer id="sobre-mi">
+      <TitleSection>
+        <ProfileCheck class="size-8" />
+        Sobre mí
+      </TitleSection>
+      <AboutMe />
+    </SectionContainer>
+  </div>
   </main>
 </Layout>

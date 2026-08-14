@@ -1,0 +1,31 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Febrero 2023 - Presente",
+    title: "Desarrollador Web",
+    company: "INETER",
+    description:
+      "Desarrollo y mantenimiento de sistemas internos utilizando C# y .NET, enfocados en la gestión de información institucional, automatización de procesos y generación de reportes. He participado en la modernización de módulos existentes, migración de reportes a DevExpress y mejora de flujos operativos.",
+    technologies: [".NET", "C#", "SQL Server", "DevExpress", "Razor"],
+  },
+  {
+    date: "Febrero 2026",
+    title: "Frontend Developer",
+    company: "Proyecto Sistema de Venta de Tickets",
+    description:
+     "Desarrollo de interfaces para un sistema de gestión y venta de tickets de estadio, trabajando con Angular y PrimeNG. Participación en módulos de eventos, ubicaciones, seguridad y ventas, priorizando una interfaz clara, consistente y responsive.",
+    technologies: ["Angular", "TypeScript", "PrimeNG", "REST API"],  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
+

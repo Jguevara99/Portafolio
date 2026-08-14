@@ -1,0 +1,57 @@
+---
+import profileImage from '../assets/img/Imprimir.png';
+const personalImageAlt = "Jairo Guevara"
+---
+
+<article
+  class="flex flex-col items-center justify-center gap-8 text-gray-700
+         dark:text-gray-300 md:flex-row"
+>
+  <div
+    class="[&>p]:mb-4
+           [&>p>strong]:text-yellow-500
+           dark:[&>p>strong]:text-yellow-100
+           [&>p>strong]:font-normal
+           [&>p>strong]:font-mono
+           text-pretty
+           order-2 md:order-1"
+  >
+    <p>
+      Soy Jairo Guevara, Ingeniero en Ciencias de la Computación y
+      <strong>desarrollador de software especializado en .NET y Angular</strong>.
+      Me apasiona crear soluciones que simplifiquen procesos y aporten valor
+      real a quienes las utilizan.
+    </p>
+
+    <p>
+      A lo largo de mi experiencia he participado en el
+      <strong>
+        desarrollo y modernización de sistemas empresariales
+      </strong>,
+      trabajando tanto en interfaces web como en lógica de negocio,
+      integración de servicios y generación de reportes.
+    </p>
+
+    <p>
+      Disfruto enfrentar nuevos retos técnicos, aprender nuevas tecnologías
+      y mejorar continuamente la calidad de mi código. Actualmente busco
+      <strong>
+        seguir creciendo como desarrollador y participar en proyectos
+        donde pueda aportar, aprender y asumir nuevos desafíos
+      </strong>.
+    </p>
+  </div>
+
+  <img
+    width="200"
+    height="200"
+    src={profileImage.src}]
+    alt={personalImageAlt}
+    class="order-1 object-cover w-64 h-full p-1
+           md:order-2 rotate-3 lg:p-2 lg:w-64
+           aspect-square rounded-2xl bg-black/20
+           dark:bg-yellow-500/5 ring-1 ring-black/70
+           dark:ring-white/20"
+    style="object-position: 50% 50%"
+  />
+</article>
