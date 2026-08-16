@@ -1,0 +1,270 @@
+---
+import { Icon } from "astro-icon/components"
+
+const outerTechnologies = [
+  { name: "C#", angle: 0, icon: "simple-icons:csharp", color: "#512BD4" },
+  { name: "Angular", angle: 60, icon: "simple-icons:angular", color: "#DD0031" },
+  { name: "TypeScript", angle: 120, icon: "simple-icons:typescript", color: "#3178C6" },
+  { name: "JavaScript", angle: 180, icon: "simple-icons:javascript", color: "#F7DF1E" },
+  { name: "Git", angle: 240, icon: "simple-icons:git", color: "#F05032" },
+  { name: "Docker", angle: 300, icon: "simple-icons:docker", color: "#2496ED" },
+]
+
+const innerTechnologies = [
+  { name: ".NET", angle: 30, icon: "simple-icons:dotnet", color: "#512BD4" },
+  { name: "SQL Server", angle: 102, icon: "simple-icons:microsoftsqlserver", color: "#CC2927" },
+  { name: "HTML5", angle: 174, icon: "simple-icons:html5", color: "#E34F26" },
+  { name: "CSS3", angle: 246, icon: "simple-icons:css3", color: "#663399" },
+  { name: "Astro", angle: 318, icon: "simple-icons:astro", color: "#FF5D01" },
+]
+---
+
+<div class="technology-orbit-wrapper">
+  <div class="technology-orbit" aria-label="Tecnologías que conozco">
+    <div class="orbit orbit--outer">
+    <div class="orbit__spinner">
+      {
+        outerTechnologies.map((technology) => (
+          <div
+            class="technology-icon"
+            style={`--angle: ${technology.angle}deg; --tech-color: ${technology.color};`}
+            title={technology.name}
+            aria-label={technology.name}
+            role="img"
+            tabindex="0"
+          >
+            <span class="technology-icon__face">
+              <Icon name={technology.icon} width="26" height="26" aria-hidden="true" />
+            </span>
+            <span class="tooltip">{technology.name}</span>
+          </div>
+        ))
+      }
+    </div>
+    </div>
+
+    <div class="orbit orbit--inner">
+      <div class="orbit__spinner">
+      {
+        innerTechnologies.map((technology) => (
+          <div
+            class="technology-icon"
+            style={`--angle: ${technology.angle}deg; --tech-color: ${technology.color};`}
+            title={technology.name}
+            aria-label={technology.name}
+            role="img"
+            tabindex="0"
+          >
+            <span class="technology-icon__face">
+              <Icon name={technology.icon} width="26" height="26" aria-hidden="true" />
+            </span>
+            <span class="tooltip">{technology.name}</span>
+          </div>
+        ))
+      }
+      </div>
+    </div>
+
+    <div class="technology-orbit__center">
+      <span class="code-mark">&lt;/&gt;</span>
+      <p>Skill</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .technology-orbit-wrapper {
+    margin-top: 20px;
+  }
+
+  .technology-orbit {
+    --orbit-size: min(396px, 100%);
+    --outer-diameter: 350px;
+    --inner-diameter: 270px;
+    --outer-radius: 175px;
+    --inner-radius: 135px;
+    --icon-size: 42px;
+    position: relative;
+    width: var(--orbit-size);
+    max-width: 430px;
+    aspect-ratio: 1;
+    margin-inline: auto;
+    overflow: visible;
+    isolation: isolate;
+  }
+
+  .orbit {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: var(--diameter);
+    height: var(--diameter);
+    border: 1px solid rgba(96, 165, 250, 0.28);
+    border-radius: 50%;
+  }
+
+  .orbit--outer {
+    --diameter: var(--outer-diameter);
+    --radius: var(--outer-radius);
+    border-color: rgba(96, 165, 250, 0.24);
+  }
+
+  .orbit--inner {
+    --diameter: var(--inner-diameter);
+    --radius: var(--inner-radius);
+    border-color: rgba(250, 204, 21, 0.22);
+  }
+
+  .orbit__spinner {
+    position: absolute;
+    inset: 0;
+    --radius: inherit;
+    transform-origin: center;
+  }
+
+  .orbit--outer .orbit__spinner {
+    --radius: var(--outer-radius);
+    animation: orbit-forward 44s linear infinite;
+  }
+
+  .orbit--inner .orbit__spinner {
+    --radius: var(--inner-radius);
+    animation: orbit-reverse 36s linear infinite;
+  }
+
+  .orbit::before,
+  .orbit::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px currentColor;
+  }
+
+  .orbit--outer::before { top: 11%; left: 22%; color: #60a5fa; background: currentColor; }
+  .orbit--outer::after { right: 12%; bottom: 27%; color: #60a5fa; background: currentColor; }
+  .orbit--inner::before { top: 25%; right: 7%; color: #facc15; background: currentColor; }
+  .orbit--inner::after { bottom: 8%; left: 27%; color: #facc15; background: currentColor; }
+
+  .technology-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin: calc(var(--icon-size) / -2);
+    border: 1px solid color-mix(in srgb, var(--tech-color), transparent 52%);
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.82);
+    box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.035);
+    cursor: help;
+    transform: rotate(var(--angle)) translateX(var(--radius)) rotate(calc(var(--angle) * -1));
+    transform-origin: center;
+    backdrop-filter: blur(7px);
+  }
+
+  .technology-icon__face {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--tech-color);
+    animation: icon-counter-rotate 44s linear infinite;
+  }
+
+  .orbit--inner .technology-icon__face { animation-name: icon-counter-rotate-reverse; animation-duration: 36s; }
+  .technology-icon :global(svg) { width: 23px; height: 23px; fill: currentColor; }
+  .technology-icon:hover { border-color: var(--tech-color); background: rgba(30, 41, 59, 0.94); }
+  .technology-icon:hover .technology-icon__face { transform: scale(1.1); }
+
+  .tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    z-index: 4;
+    padding: 4px 7px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 5px;
+    background: rgba(15, 23, 42, 0.96);
+    color: #f8fafc;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(3px);
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+
+  .technology-icon:hover .tooltip,
+  .technology-icon:focus-visible .tooltip { opacity: 1; transform: translateX(-50%); }
+
+  .technology-orbit__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    width: 115px;
+    height: 115px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.68);
+    color: rgb(226, 232, 240);
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(8px);
+  }
+
+  .technology-orbit__center p { margin: 0; font-size: 14px; }
+  .code-mark { color: #f8fafc; font-size: 29px; font-weight: 700; letter-spacing: -0.12em; }
+
+  .technology-orbit:hover .orbit__spinner,
+  .technology-orbit:hover .technology-icon__face { animation-play-state: paused; }
+
+  @keyframes orbit-forward { to { transform: rotate(360deg); } }
+  @keyframes orbit-reverse { to { transform: rotate(-360deg); } }
+  @keyframes icon-counter-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
+  @keyframes icon-counter-rotate-reverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @media (max-width: 1023px) {
+    .technology-orbit-wrapper { margin-top: 20px; }
+
+    .technology-orbit {
+      --orbit-size: min(331px, 100%);
+      --outer-diameter: 287px;
+      --inner-diameter: 220px;
+      --outer-radius: 143.5px;
+      --inner-radius: 110px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .technology-orbit-wrapper { margin-top: 24px; }
+
+    .technology-orbit {
+      --orbit-size: min(276px, 100%);
+      --outer-diameter: 232px;
+      --inner-diameter: 174px;
+      --outer-radius: 116px;
+      --inner-radius: 87px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orbit__spinner, .technology-icon__face { animation: none; }
+    .tooltip { transition: none; }
+  }
+</style>
