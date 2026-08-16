@@ -4,29 +4,48 @@ import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
+import Angularicon from "./icons/Angular.astro"
+import PrimeNG from "./icons/PrimeNG.astro"
+import DotNet from "./icons/DotNet.astro"
+import Stadium from "../assets/img/project/stadio/carrito.png"
 
 const TAGS = {
-  // NEXT: {
-  //   name: "Next.js",
-  //   class: "bg-black text-white",
-  //   icon: NextJS,
-  // },
-  // TAILWIND: {
-  //   name: "Tailwind CSS",
-  //   class: "bg-[#003159] text-white",
-  //   icon: Tailwind,
-  // },
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  ANGULAR: {
+    name: "Angular",
+    class: "bg-[#DD0031] text-white",
+    icon: Angularicon,
+  },
+  PRIMENG: {
+    name: "PrimeNG",
+    class: "bg-[#0EA5E9] text-white",
+    icon: PrimeNG,
+  },
+  DOTNET: {
+    name: ".NET",
+    class: "bg-[#512BD4] text-white",
+    icon: DotNet,
+  },
 }
 const PROJECTS = [
-  // {
-  //   title: "SVGL - A beautiful library with SVG logos",
-  //   description:
-  //     "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-  //   link: "https://svgl.vercel.app/",
-  //   github: "https://github.com/pheralb/svgl",
-  //   image: "/projects/svgl.webp",
-  //   tags: [TAGS.NEXT, TAGS.TAILWIND],
-  // },
+  {
+    title: "SluggerWeb — Sistema de Venta de Tickets",
+    description:
+      "Sistema integral para la gestión y venta de entradas en un estadio de béisbol. Participé en el desarrollo frontend con Angular y PrimeNG,implementando módulos de eventos, ubicaciones, ventas, seguridad y validación de tickets.",
+    link: "#",
+    github: "#",
+    image: Stadium.src,
+    tags: [TAGS.ANGULAR, TAGS.PRIMENG, TAGS.DOTNET],
+  },
   // {
   //   title: "AdventJS - Retos de programación con JavaScript y TypeScript",
   //   description:
@@ -44,7 +63,7 @@ const PROJECTS = [
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
   <div class="w-full md:w-1/2">
     <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+      <img alt="img project" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
     </div>
   </div>
 
